@@ -1,10 +1,31 @@
 package org.wikipedia.homeworks.homework03
 
+import android.widget.LinearLayout
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.button.MaterialButton
 import org.wikipedia.navtab.NavTabLayout
+import org.wikipedia.views.AppTextView
 import org.wikipedia.views.FaceAndColorDetectImageView
 import org.wikipedia.views.WikiCardView
+
+
+val topContainer = listOf(
+    LinearLayout::class.java,
+    "scrollViewContainer",
+    null
+)
+
+val topImage = listOf(
+    LinearLayout::class.java,
+    "imageViewCentered",
+    null
+)
+
+val onboardingTextDescr = listOf(
+    AppTextView::class.java,
+    "primaryTextView",
+    "onboarding_welcome_title_v2"
+)
 
 val mainToolbar = listOf(
     MaterialToolbar::class.java,
