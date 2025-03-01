@@ -30,6 +30,7 @@ class SkipOnboardingTestScreen : TestCase() {
                     newsHeader.hasAnyText()
                 }
             }
+
             step("Click on the 3rd image block") {
                 ExploreScreen.items.childWith<InTheNewsViewItem> {
                     withDescendant {
