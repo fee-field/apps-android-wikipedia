@@ -261,6 +261,7 @@ dependencies {
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.room.testing
     androidTestUtil libs.androidx.orchestrator
+    androidTestImplementation libs.androidx.espresso.intents
     androidTestImplementation 'com.kaspersky.android-components:kaspresso:1.5.4'
 
     // Compose Library
