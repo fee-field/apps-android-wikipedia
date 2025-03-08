@@ -2,6 +2,7 @@ package org.wikipedia.homeworks.homework08
 
 import com.kaspersky.kaspresso.screens.KScreen
 import io.github.kakaocup.kakao.common.views.KView
+import io.github.kakaocup.kakao.image.KImageView
 import io.github.kakaocup.kakao.pager2.KViewPager2
 import io.github.kakaocup.kakao.text.KButton
 import org.wikipedia.R
@@ -29,5 +30,9 @@ object OnboardingScreen : KScreen<OnboardingScreen>() {
 
     val doneButton = KButton{
         withId(R.id.fragment_onboarding_done_button)
+    }
+
+    val logo = KImageView{
+        withId(R.id.imageViewCentered)
     }
 }
