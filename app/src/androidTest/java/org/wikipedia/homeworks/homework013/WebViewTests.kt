@@ -6,7 +6,10 @@ import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import org.junit.Rule
 import org.junit.Test
 import org.wikipedia.homeworks.homework07.ExploreScreen
+import org.wikipedia.homeworks.homework07.FeaturedArticleItem
 import org.wikipedia.homeworks.homework07.NewsCardViewItem
+import org.wikipedia.homeworks.homework07.TopReadCardViewItem
+import org.wikipedia.homeworks.homework07.TopReadItem
 import org.wikipedia.homeworks.homework08.OnboardingScreen
 import org.wikipedia.homeworks.homework09.InTheNewsViewItem
 import org.wikipedia.main.MainActivity
@@ -21,11 +24,17 @@ class WebViewTests : TestCase() {
         run {
             step("Skip Onboarding, navigate to any article") {
                 OnboardingScreen.skipButton.click()
-                ExploreScreen.items.childWith<InTheNewsViewItem> {
+                ExploreScreen.items.childWith<FeaturedArticleItem> {
                     withDescendant { withText("Featured article") }
                 }.perform {
-                    click()
+                    isDisplayed()
+                    }
                 }
+            step("Click the article name") {
+                ExploreScreen.items.childAt<FeaturedArticleItem>(3) {
+                    title.click()
+                }
+
             }
 
             step("Scroll to Element with Id = 'References' and verify text of the element") {

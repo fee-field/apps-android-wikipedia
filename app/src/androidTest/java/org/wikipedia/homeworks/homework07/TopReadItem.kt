@@ -19,7 +19,7 @@ class TopReadItem(matcher: Matcher<View>) : KRecyclerItem<TopReadItem>(matcher) 
         withId(R.id.view_list_card_header_menu)
     }
 
-    val wikiCardViewItems = KRecyclerView(
+    val cardViewItems = KRecyclerView(
         parent = matcher,
         builder = {
             withId(R.id.view_list_card_list)
