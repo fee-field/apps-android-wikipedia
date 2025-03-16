@@ -72,7 +72,17 @@ class WebViewTests : TestCase() {
                 }
             }
             step("Click [Read Article] button on the pop up window") {
-
+                DialogPreviewContainer.readArticleButton.click()
+            }
+            step("Scroll to Element with Id = 'References' and verify text of the element") {
+                ArticleViewScreen {
+                    webView {
+                        withElement(Locator.ID, "References") {
+                            scroll()
+                            hasText("References")
+                        }
+                    }
+                }
             }
         }
     }
