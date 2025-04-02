@@ -1,4 +1,4 @@
-package org.wikipedia.homeworks.homework09
+package org.wikipedia.homeworks.homework18
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.kaspersky.components.alluresupport.withForcedAllureSupport
@@ -9,6 +9,11 @@ import org.junit.Rule
 import org.junit.Test
 import org.wikipedia.homeworks.homework07.ExploreScreen
 import org.wikipedia.homeworks.homework08.OnboardingScreen
+import org.wikipedia.homeworks.homework09.InTheNewsViewItem
+import org.wikipedia.homeworks.homework09.NewsCardViewItem
+import org.wikipedia.homeworks.homework09.NewsScreen
+import org.wikipedia.homeworks.homework09.NewsStoryItemView
+import org.wikipedia.homeworks.homework09.WikiArticleCardView
 import org.wikipedia.main.MainActivity
 
 class SkipOnboardingTestScreen :
