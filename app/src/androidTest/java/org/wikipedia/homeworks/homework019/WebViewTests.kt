@@ -1,4 +1,4 @@
-package org.wikipedia.homeworks.homework013
+package org.wikipedia.homeworks.homework019
 
 import androidx.test.espresso.web.webdriver.Locator
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -7,6 +7,10 @@ import com.kaspersky.kaspresso.kaspresso.Kaspresso
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import org.junit.Rule
 import org.junit.Test
+import org.wikipedia.homeworks.homework013.ArticleViewScreen
+import org.wikipedia.homeworks.homework013.DialogPreviewContainer
+import org.wikipedia.homeworks.homework013.PopUpScreen
+import org.wikipedia.homeworks.homework013.PopUpViewItem
 import org.wikipedia.homeworks.homework019.Steps
 import org.wikipedia.homeworks.homework07.ExploreScreen
 import org.wikipedia.homeworks.homework07.FeaturedArticleItem
