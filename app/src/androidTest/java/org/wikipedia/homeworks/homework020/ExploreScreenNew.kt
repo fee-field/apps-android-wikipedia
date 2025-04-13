@@ -47,11 +47,13 @@ object ExploreScreenNew : NamedKScreen<ExploreScreenNew>() {
 
 
     fun topReadItem(index: Int, function: TopReadItem.() -> Unit) {
-        items.childAt<TopReadItem>(index) {
-            name(this@ExploreScreenNew.items.getName().withParent("$index"))
-            this.name(withParent("$index"))
-            function()
-        }
+//        items.childAt<TopReadItem>(index) {
+//            name(this@ExploreScreenNew.items.getName().withParent("$index"))
+//            this.name(withParent("$index"))
+//            function()
+
+            items.invokeAtIndex(index, function)
+
     }
 
     fun topReadItemText() {
@@ -59,6 +61,6 @@ object ExploreScreenNew : NamedKScreen<ExploreScreenNew>() {
             withDescendant {
                 withText("Top Read")
             }
-        }.name(withParent("Top Read Item block")
+        }.name(items.getName().withParent("Top Read Item block"))
     }
 }
