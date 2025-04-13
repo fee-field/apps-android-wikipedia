@@ -2,13 +2,13 @@ package org.wikipedia.homeworks.homework020
 
 import io.github.kakaocup.kakao.common.actions.BaseActions
 
-    val names = mutableMapOf<BaseActions, String>()
+    val names = mutableMapOf<BaseActions, HierarchyClass>()
 
-    fun <T : BaseActions> T.setName(name: String): T {
-        names[this] = name
+    fun <T : BaseActions> T.name(hierarchyClass: HierarchyClass): T {
+        names[this] = hierarchyClass
         return this
     }
-    fun BaseActions.getName() : String? {
+    fun BaseActions.getName() : HierarchyClass {
         return names[this] ?: throw RuntimeException ("set name")
     }
 

@@ -1,6 +1,5 @@
 package org.wikipedia.homeworks.homework020
 
-import com.kaspersky.kaspresso.screens.KScreen
 import io.github.kakaocup.kakao.image.KImageView
 import io.github.kakaocup.kakao.recycler.KRecyclerView
 import io.github.kakaocup.kakao.text.KButton
@@ -13,24 +12,26 @@ import org.wikipedia.homeworks.homework07.SearchCardViewItem
 import org.wikipedia.homeworks.homework07.TopReadItem
 import org.wikipedia.homeworks.homework09.InTheNewsViewItem
 
-object ExploreScreenNew : KScreen<ExploreScreenNew>() {
+object ExploreScreenNew : NamedKScreen<ExploreScreenNew>() {
+    override val screenName = "Main Screen"
+
     override val layoutId = R.layout.fragment_feed
     override val viewClass = FeedView::class.java
 
     val toolbarTitle: KImageView = KImageView {
         withId(R.id.main_toolbar_wordmark)
-    }.setName("Toolbar Title")
+    }.name(withParent("toolbar title"))
 
     val searchIcon: KImageView = KImageView {
         KImageView {
             withDrawable(R.drawable.ic_search_white_24dp)
-        }.setName("Search Icon")
+        }.name(withParent("Search Icon")
     }
 
     val customizeButton: KButton = KButton {
         KButton {
             withId(R.id.view_announcement_action_positive)
-        }.name("Customize Button")
+        }.name(withParent("Customize Button")
     }
 
     val items = KRecyclerView(builder = {
@@ -46,7 +47,11 @@ object ExploreScreenNew : KScreen<ExploreScreenNew>() {
 
 
     fun topReadItem(index: Int, function: TopReadItem.() -> Unit) {
-        items.childAt<TopReadItem>(index, function)
+        items.childAt<TopReadItem>(index) {
+            name(this@ExploreScreenNew.items.getName().withParent("$index"))
+            this.name(withParent("$index"))
+            function()
+        }
     }
 
     fun topReadItemText() {
@@ -54,6 +59,6 @@ object ExploreScreenNew : KScreen<ExploreScreenNew>() {
             withDescendant {
                 withText("Top Read")
             }
-        }.setName("Top Read Item block")
+        }.name(withParent("Top Read Item block")
     }
 }

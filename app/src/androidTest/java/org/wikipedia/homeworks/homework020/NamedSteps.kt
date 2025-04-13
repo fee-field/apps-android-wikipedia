@@ -1,4 +1,3 @@
-import android.widget.Checkable
 import com.kaspersky.kaspresso.testcases.core.testcontext.TestContext
 import com.kaspersky.kaspresso.testcases.models.info.StepInfo
 import io.github.kakaocup.kakao.check.CheckableActions
@@ -8,8 +7,6 @@ import io.github.kakaocup.kakao.common.assertions.BaseAssertions
 import io.github.kakaocup.kakao.edit.EditableActions
 import io.github.kakaocup.kakao.text.TextViewAssertions
 import org.wikipedia.homeworks.homework020.getName
-import org.wikipedia.homeworks.homework020.setName
-import org.wikipedia.homeworks.homework08.OnboardingScreen.skipButton
 
 class NamedSteps(val testContext: TestContext<*>) {
 
