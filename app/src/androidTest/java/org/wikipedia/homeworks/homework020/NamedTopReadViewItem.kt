@@ -10,11 +10,11 @@ import org.wikipedia.R
 class NamedTopReadViewItem(matcher: Matcher<View>) : KRecyclerItem<NamedTopReadViewItem>(matcher) {
     val cardItemTitle = KTextView(matcher) {
         withId(R.id.view_list_card_item_title)
-    }.name("Card Item Title")
+    }.name(
+        withParent("Card Item Title"))
 
     val cardItemImage = KImageView(matcher) {
         withId(R.id.view_list_card_item_image)
-    }.name("Card Item Image")
-
-
+    }.name(
+        withParent("Card Item Image"))
 }
