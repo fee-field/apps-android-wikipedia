@@ -1,5 +1,3 @@
-package org.wikipedia.homeworks.homework019
-
 import android.widget.Checkable
 import com.kaspersky.kaspresso.testcases.core.testcontext.TestContext
 import com.kaspersky.kaspresso.testcases.models.info.StepInfo
@@ -9,28 +7,30 @@ import io.github.kakaocup.kakao.common.actions.BaseActions
 import io.github.kakaocup.kakao.common.assertions.BaseAssertions
 import io.github.kakaocup.kakao.edit.EditableActions
 import io.github.kakaocup.kakao.text.TextViewAssertions
+import org.wikipedia.homeworks.homework020.getName
+import org.wikipedia.homeworks.homework020.setName
 import org.wikipedia.homeworks.homework08.OnboardingScreen.skipButton
 
-class Steps(val testContext: TestContext<*>) {
+class NamedSteps(val testContext: TestContext<*>) {
 
     private fun execute(stepText: String, actions: (StepInfo) -> Unit) {
         testContext.step(stepText, actions)
     }
 
 
-    operator fun invoke(function: Steps.() -> Unit) {
+    operator fun invoke(function: NamedSteps.() -> Unit) {
         function()
     }
 
 
-    fun click(item: BaseActions, name: String) {
-        testContext.step("Нажимаем на элемент '$name'") {
+    fun click(item: BaseActions) {
+        testContext.step("Нажимаем на элемент '${item.getName()}'") {
             item.click()
         }
     }
 
-    fun isVisible(item: BaseAssertions, name: String) {
-        testContext.step("проверяем видимость") {
+    fun isVisible(item: BaseAssertions) {
+        testContext.step("проверяем видимость ${(item as BaseActions).getName()}") {
             item.isVisible()
         }
     }
@@ -70,7 +70,7 @@ class Steps(val testContext: TestContext<*>) {
     }
 
     fun setChecked(item: CheckableActions, state: Boolean) {
-        testContext.step("Setting checked as $state") {
+        testContext.step("Setting checked status for ${(item as BaseActions).getName()} as $state") {
             item.setChecked(true)
         }
     }
@@ -101,37 +101,37 @@ class Steps(val testContext: TestContext<*>) {
 //    - isDisplayed()
 
     fun hasText(item: TextViewAssertions, text: String) {
-        testContext.step("Check if 'something' has text as follows: $text") {
+        testContext.step("Check if ${(item as BaseActions).getName()} has text as follows: $text") {
             item.hasText(text)
         }
     }
 
     fun hasAnyText(item: TextViewAssertions, text: String) {
-        testContext.step("Check if 'something' contains any text ") {
+        testContext.step("Check if ${(item as BaseActions).getName()} contains any text ") {
             item.hasAnyText()
         }
     }
 
     fun containsText(item: TextViewAssertions, text: String) {
-        testContext.step("Check if 'something' contains text as follows: $text") {
+        testContext.step("Check if ${(item as BaseActions).getName()} contains text as follows: $text") {
             item.containsText(text)
         }
     }
 
     fun isChecked(item: CheckableAssertions, name: String) {
-        testContext.step("Check if checked") {
+        testContext.step("Check if ${(item as BaseActions).getName()} is checked") {
             item.isChecked()
         }
     }
 
     fun isNotChecked(item: CheckableAssertions, name: String) {
-        testContext.step("Check if not checked :) ") {
+        testContext.step("Check if ${(item as BaseActions).getName()} is not checked :) ") {
             item.isNotChecked()
         }
     }
 
     fun isDisplayed(item: BaseAssertions, name: String) {
-        testContext.step("Check if displayed ") {
+        testContext.step("Check if ${(item as BaseActions).getName()} is displayed ") {
             item.isDisplayed()
         }
     }

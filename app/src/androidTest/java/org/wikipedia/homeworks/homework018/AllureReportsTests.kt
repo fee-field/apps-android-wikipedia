@@ -1,10 +1,9 @@
-package org.wikipedia.homeworks.homework18
+package org.wikipedia.homeworks.homework018
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.kaspersky.components.alluresupport.withForcedAllureSupport
 import com.kaspersky.kaspresso.kaspresso.Kaspresso
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
-import org.junit.After
 import org.junit.Rule
 import org.junit.Test
 import org.wikipedia.homeworks.homework07.ExploreScreen
