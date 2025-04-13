@@ -25,13 +25,13 @@ object ExploreScreenNew : NamedKScreen<ExploreScreenNew>() {
     val searchIcon: KImageView = KImageView {
         KImageView {
             withDrawable(R.drawable.ic_search_white_24dp)
-        }.name(withParent("Search Icon")
+        }.name(this@ExploreScreenNew.withParent("Search Icon"))
     }
 
     val customizeButton: KButton = KButton {
         KButton {
             withId(R.id.view_announcement_action_positive)
-        }.name(withParent("Customize Button")
+        }.name(this@ExploreScreenNew.withParent("Customize Button"))
     }
 
     val items = KRecyclerView(builder = {

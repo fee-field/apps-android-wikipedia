@@ -1,7 +1,7 @@
 package org.wikipedia.homeworks.homework020
 
-class NameHierarchy(val name: String, val parent: NameHierarchy? = null) {
-    fun withParent(currentElementName: String) = NameHierarchy(currentElementName, this)
+class NameHierarchyClass(val name: String, val parent: NameHierarchyClass? = null) {
+    fun withParent(currentElementName: String) = NameHierarchyClass(currentElementName, this)
     override fun toString(): String {
         return if (parent == null) name
         else "$parent : $name"

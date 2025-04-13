@@ -7,7 +7,6 @@ import io.github.kakaocup.kakao.recycler.KRecyclerView
 import io.github.kakaocup.kakao.text.KTextView
 import org.hamcrest.Matcher
 import org.wikipedia.R
-import org.wikipedia.homeworks.homework020.ExploreScreenNew.withParent
 
 class NamedTopReadItems(matcher: Matcher<View>) : KRecyclerItem<NamedTopReadItems>(matcher) {
     val topReadHeaderTitle by lazy { KTextView(matcher) {
