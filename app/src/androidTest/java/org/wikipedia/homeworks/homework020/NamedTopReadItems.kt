@@ -9,24 +9,33 @@ import org.hamcrest.Matcher
 import org.wikipedia.R
 
 class NamedTopReadItems(matcher: Matcher<View>) : KRecyclerItem<NamedTopReadItems>(matcher) {
-    val topReadHeaderTitle by lazy { KTextView(matcher) {
-        withId(R.id.view_card_header_title)
-    }.name(
-        withParent("Top Header Title")) }
-    val languageCode = KTextView(matcher) {
-        withId(R.id.langCodeText)
-    }
-    val imageMenu = KImageView(matcher) {
-        withId(R.id.view_list_card_header_menu)
+    val topReadHeaderTitle : KTextView by lazy {
+        KTextView(matcher) {
+            withId(R.id.view_card_header_title)
+        }.setName(withParent("Top Header Title"))
     }
 
-    val cardViewItems = KRecyclerView(
-        parent = matcher,
-        builder = {
-            withId(R.id.view_list_card_list)
-        },
-        itemTypeBuilder = {
-            itemType(::NamedTopReadViewItem)
-        }
-    )
+    val languageCode: KTextView by lazy {
+        KTextView(matcher) {
+            withId(R.id.langCodeText)
+        }.setName(withParent("Language Code"))
+    }
+
+    val imageMenu: KImageView by lazy {
+        KImageView(matcher) {
+            withId(R.id.view_list_card_header_menu)
+        }.setName(withParent("Menu Image"))
+    }
+
+    val items: KRecyclerView by lazy {
+        KRecyclerView(
+            parent = matcher,
+            builder = {
+                withId(R.id.news_cardview_recycler_view)
+            },
+            itemTypeBuilder = {
+                itemType(::NamedTopReadViewItem)
+            }
+        ).setName(withParent("Cards"))
+    }
 }

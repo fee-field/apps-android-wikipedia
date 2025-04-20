@@ -29,6 +29,7 @@ class SkipOnboardingTestScreen :
             step("Skip Onboarding") {
                 OnboardingScreen.skipButton.click()
             }
+            
             step("Search for [In the News] block") {
                 ExploreScreen.items.childWith<InTheNewsViewItem> {
                     withDescendant {

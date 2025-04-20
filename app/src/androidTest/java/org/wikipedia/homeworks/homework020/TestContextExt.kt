@@ -1,5 +1,6 @@
 package org.wikipedia.homeworks.homework020
 
+import NamedSteps
 import com.kaspersky.kaspresso.testcases.core.testcontext.TestContext
 import org.wikipedia.homeworks.homework019.Steps
 

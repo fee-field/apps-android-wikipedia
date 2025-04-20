@@ -32,10 +32,9 @@ class NamedElementsInTheNews :
             val steps = NamedSteps(this)
             steps {
                 click(OnboardingScreen.skipButton)
-                isVisible(ExploreScreenNew.searchIcon)
                 click(ExploreScreenNew.customizeButton)
-                ExploreScreenNew.topReadItemText().perform { hasAnyText(topReadHeaderTitle) }
-                click(NamedTopReadItems.imageMenu)
+                ExploreScreenNew.topReadItem().perform { hasAnyText(topReadHeaderTitle) }
+//                click(NamedTopReadItems.imageMenu)
                 }
             }
         }

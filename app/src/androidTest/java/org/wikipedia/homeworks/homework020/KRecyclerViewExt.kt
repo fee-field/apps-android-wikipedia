@@ -9,7 +9,7 @@ inline fun <reified T : KRecyclerItem<*>> KRecyclerView.invokeAtIndex(
 ) {
     val recycler: KRecyclerView = this
     childAt<T>(index) {
-        name(recycler.getName().withParent("$index"))
+        setName(recycler.getName().withParent("$index"))
         function()
     }
 }

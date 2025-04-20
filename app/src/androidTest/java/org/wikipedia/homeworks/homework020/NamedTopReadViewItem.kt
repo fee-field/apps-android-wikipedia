@@ -8,13 +8,15 @@ import org.hamcrest.Matcher
 import org.wikipedia.R
 
 class NamedTopReadViewItem(matcher: Matcher<View>) : KRecyclerItem<NamedTopReadViewItem>(matcher) {
-    val cardItemTitle = KTextView(matcher) {
-        withId(R.id.view_list_card_item_title)
-    }.name(
-        withParent("Card Item Title"))
+    val cardItemTitle: KImageView by lazy {
+        KImageView(matcher) {
+            withId(R.id.view_list_card_item_title)
+        }.setName(withParent("Card Item Title"))
+    }
 
-    val cardItemImage = KImageView(matcher) {
-        withId(R.id.view_list_card_item_image)
-    }.name(
-        withParent("Card Item Image"))
+    val cardItemImage: KImageView by lazy {
+        KImageView(matcher) {
+            withId(R.id.view_list_card_item_image)
+        }.setName(withParent("Card Item Image"))
+    }
 }

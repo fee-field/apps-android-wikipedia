@@ -14,53 +14,55 @@ import org.wikipedia.homeworks.homework09.InTheNewsViewItem
 
 object ExploreScreenNew : NamedKScreen<ExploreScreenNew>() {
     override val screenName = "Main Screen"
-
     override val layoutId = R.layout.fragment_feed
     override val viewClass = FeedView::class.java
 
-    val toolbarTitle: KImageView = KImageView {
-        withId(R.id.main_toolbar_wordmark)
-    }.name(withParent("toolbar title"))
+    val toolbarTitle: KImageView by lazy {
+        KImageView {
+            withId(R.id.main_toolbar_wordmark)
+        }.setName(withParent("Toolbar title"))
+    }
 
-    val searchIcon: KImageView = KImageView {
+    val searchIcon: KImageView by lazy {
         KImageView {
             withDrawable(R.drawable.ic_search_white_24dp)
-        }.name(this@ExploreScreenNew.withParent("Search Icon"))
+        }.setName(withParent("Search Icon"))
     }
 
-    val customizeButton: KButton = KButton {
+    val customizeButton: KButton by lazy {
         KButton {
             withId(R.id.view_announcement_action_positive)
-        }.name(this@ExploreScreenNew.withParent("Customize Button"))
+        }.setName(withParent("Customize Button"))
     }
 
-    val items = KRecyclerView(builder = {
-        withId(R.id.feed_view)
-    }, itemTypeBuilder = {
-        itemType(::SearchCardViewItem)
-        itemType(::DayHeaderCardViewItem)
-        itemType(::AnnouncementCardViewItem)
-        itemType(::TopReadItem)
-        itemType(::InTheNewsViewItem)
-        itemType(::FeaturedArticleItem)
-    }).name(withParent("List of Blocks"))
-
+    val items: KRecyclerView by lazy {
+        KRecyclerView(
+            builder = {
+                withId(R.id.feed_view)
+            }, itemTypeBuilder = {
+                itemType(::SearchCardViewItem)
+                itemType(::DayHeaderCardViewItem)
+                itemType(::AnnouncementCardViewItem)
+                itemType(::NamedTopReadItems)
+                itemType(::InTheNewsViewItem)
+                itemType(::FeaturedArticleItem)
+            }).setName(withParent("List of Blocks"))
+    }
 
     fun topReadItem(index: Int, function: TopReadItem.() -> Unit) {
 //        items.childAt<TopReadItem>(index) {
 //            name(this@ExploreScreenNew.items.getName().withParent("$index"))
 //            this.name(withParent("$index"))
 //            function()
-
-            items.invokeAtIndex(index, function)
+        items.invokeAtIndex(index, function)
 
     }
 
-    fun topReadItemText() {
-        items.childWith<TopReadItem> {
+    fun topReadItem() : NamedTopReadItems {
+       return items.childWith<NamedTopReadItems> {
             withDescendant {
                 withText("Top Read")
             }
-        }.name(items.getName().withParent("Top Read Item block"))
+        }.setName(items.getName().withParent("Top Read Item block"))
     }
 }

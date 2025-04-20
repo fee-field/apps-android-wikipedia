@@ -6,6 +6,8 @@ import io.github.kakaocup.kakao.image.KImageView
 import io.github.kakaocup.kakao.pager2.KViewPager2
 import io.github.kakaocup.kakao.text.KButton
 import org.wikipedia.R
+import org.wikipedia.homeworks.homework020.ExploreScreenNew.withParent
+import org.wikipedia.homeworks.homework020.setName
 
 object OnboardingScreen : KScreen<OnboardingScreen>() {
     override val layoutId = R.layout.fragment_onboarding_pager
@@ -20,8 +22,10 @@ object OnboardingScreen : KScreen<OnboardingScreen>() {
             itemType(::OnboardingPagerItem)
         }
     )
-    val skipButton = KButton{
-        withId(R.id.fragment_onboarding_skip_button)
+    val skipButton: KButton by lazy {
+        KButton {
+            withId(R.id.fragment_onboarding_skip_button)
+        }.setName(withParent("Кнопка 'Skip'"))
     }
 
     val continueButton = KButton{

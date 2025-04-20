@@ -103,7 +103,7 @@ class NamedSteps(val testContext: TestContext<*>) {
         }
     }
 
-    fun hasAnyText(item: TextViewAssertions, text: String) {
+    fun hasAnyText(item: TextViewAssertions) {
         testContext.step("Check if ${(item as BaseActions).getName()} contains any text ") {
             item.hasAnyText()
         }
