@@ -8,24 +8,34 @@ import org.wikipedia.homeworks.homework07.FeaturedArticleItem
 import org.wikipedia.homeworks.homework07.SearchCardViewItem
 
 
-fun ExploreScreen.searchCardViewItem(
-    targetId: Int,
-    targetIndex: Int,
-    limiter: Int,
-    blockName: String,
-    function: SearchCardViewItem.() -> Unit
-) {
-    return items.invokeByID<SearchCardViewItem>(
-        targetId = (R.id.voice_search_button),
-        targetIndex = 1,
-//        function = function,
-        blockName = "Search Block",
-        limiter = (4 * targetIndex).coerceAtLeast(5)
-    ) {
-        setName(ExploreScreen.items.getName().withParent("Search Article Block"))
-    }
-}
+//fun ExploreScreen.searchCardViewItem(
+//    targetId: Int,
+//    targetIndex: Int,
+//    limiter: Int,
+//    blockName: String,
+//    function: SearchCardViewItem.() -> Unit
+//) {
+//    return items.invokeByID<SearchCardViewItem>(
+//        targetId = (R.id.voice_search_button),
+//        targetIndex = 1,
+////        function = function,
+//        blockName = "Search Block",
+//        limiter = (4 * targetIndex).coerceAtLeast(5)
+//    ) {
+//        setName(ExploreScreen.items.getName().withParent("Search Article Block"))
+//    }
+//}
 
+
+fun ExploreScreen.searchCardViewItem(function: SearchCardViewItem.() -> Unit) {
+    items.invokeByID<SearchCardViewItem>(
+        targetId = R.id.voice_search_button,
+        targetIndex = 1,
+        blockName = "Search block",
+        limiter = 5,
+        function = function
+    )
+}
 
 fun ExploreScreen.searchCardViewItem(
     index: Int,
