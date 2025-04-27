@@ -19,6 +19,10 @@ class TopReadItem(matcher: Matcher<View>) : KRecyclerItem<TopReadItem>(matcher) 
         withId(R.id.view_list_card_header_menu)
     }
 
+    val footerContainer = KImageView(matcher) {
+        withId(R.id.footerActionButton)
+    }
+
     val cardViewItems = KRecyclerView(
         parent = matcher,
         builder = {

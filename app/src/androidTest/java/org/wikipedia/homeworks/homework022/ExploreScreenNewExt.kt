@@ -3,6 +3,7 @@ package org.wikipedia.homeworks.homework022
 import org.wikipedia.R
 import org.wikipedia.homeworks.homework020.getName
 import org.wikipedia.homeworks.homework020.setName
+import org.wikipedia.homeworks.homework07.AnnouncementCardViewItem
 import org.wikipedia.homeworks.homework07.ExploreScreen
 import org.wikipedia.homeworks.homework07.FeaturedArticleItem
 import org.wikipedia.homeworks.homework07.SearchCardViewItem
@@ -27,7 +28,7 @@ import org.wikipedia.homeworks.homework07.SearchCardViewItem
 //}
 
 
-fun ExploreScreen.searchCardViewItem(function: SearchCardViewItem.() -> Unit) {
+fun ExploreScreenNew.searchCardViewItem(function: SearchCardViewItem.() -> Unit) {
     items.invokeByID<SearchCardViewItem>(
         targetId = R.id.voice_search_button,
         targetIndex = 1,
@@ -37,7 +38,7 @@ fun ExploreScreen.searchCardViewItem(function: SearchCardViewItem.() -> Unit) {
     )
 }
 
-fun ExploreScreen.searchCardViewItem(
+fun ExploreScreenNew.searchCardViewItem(
     index: Int,
     targetId: Int,
     limiter: Int,
@@ -52,25 +53,25 @@ fun ExploreScreen.searchCardViewItem(
     )
 }
 
-fun ExploreScreen.featuredArticleItem(
+fun ExploreScreenNew.announcementItemById(
     targetId: Int,
     limiter: Int,
     blockName: String,
     targetIndex: Int,
     function: FeaturedArticleItem.() -> Unit
 ) {
-    return items.invokeByID<FeaturedArticleItem>(
+    return items.invokeByID<AnnouncementCardViewItem>(
         targetId = (R.id.articleImage),
         targetIndex = 0,
         blockName = "Featured Article block",
         limiter = (4 * targetIndex).coerceAtLeast(5)
     ) {
-        setName(ExploreScreen.items.getName().withParent("Featured Article Block"))
+        setName(ExploreScreen.items.getName().withParent("Announcement Article Block"))
     }
 }
 
 
-fun ExploreScreen.featuredArticleItem(
+fun ExploreScreenNew.featuredArticleItem(
     index: Int,
     targetId: Int,
     limiter: Int,

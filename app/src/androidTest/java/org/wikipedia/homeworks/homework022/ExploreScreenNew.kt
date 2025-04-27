@@ -8,7 +8,6 @@ import org.wikipedia.feed.view.FeedView
 import org.wikipedia.homeworks.homework020.NamedKScreen
 import org.wikipedia.homeworks.homework020.NamedTopReadItems
 import org.wikipedia.homeworks.homework020.getName
-import org.wikipedia.homeworks.homework020.invokeAtIndex
 import org.wikipedia.homeworks.homework020.setName
 import org.wikipedia.homeworks.homework07.AnnouncementCardViewItem
 import org.wikipedia.homeworks.homework07.DayHeaderCardViewItem
@@ -17,7 +16,7 @@ import org.wikipedia.homeworks.homework07.SearchCardViewItem
 import org.wikipedia.homeworks.homework07.TopReadItem
 import org.wikipedia.homeworks.homework09.InTheNewsViewItem
 
-object ExploreScreenNewRec : NamedKScreen<ExploreScreenNewRec>() {
+object ExploreScreenNew : NamedKScreen<ExploreScreenNew>() {
     override val screenName = "Main Screen"
     override val layoutId = R.layout.fragment_feed
     override val viewClass = FeedView::class.java
@@ -68,6 +67,16 @@ object ExploreScreenNewRec : NamedKScreen<ExploreScreenNewRec>() {
             limiter = (4 * targetIndex).coerceAtLeast(5),
             function = function)
     }
+    fun searchItemById(targetIndex: Int, function: TopReadItem.() -> Unit) {
+        items.invokeByID(
+            targetIndex = targetIndex,
+            targetId = R.id.voice_search_button,
+            blockName = "Search",
+            limiter = (4 * targetIndex).coerceAtLeast(5),
+            function = function)
+    }
+
+
 
     fun topReadItem() : NamedTopReadItems {
        return items.childWith<NamedTopReadItems> {

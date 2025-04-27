@@ -9,7 +9,7 @@ import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import org.junit.Rule
 import org.junit.Test
 import org.wikipedia.homeworks.homework019.steps
-import org.wikipedia.homeworks.homework020.ExploreScreenNew
+import org.wikipedia.homeworks.homework022.ExploreScreenNew
 import org.wikipedia.homeworks.homework07.ExploreScreen
 import org.wikipedia.homeworks.homework08.OnboardingScreen
 import org.wikipedia.main.MainActivity
@@ -27,7 +27,7 @@ class TypesOfBlocksTests() : TestCase(
         run {
             steps {
                 click(OnboardingScreen.skipButton, "search button")
-                ExploreScreen.searchCardViewItem {
+                ExploreScreenNew.searchCardViewItem {
                     searchText.hasText("Search Wikipedia")
                }
             }
