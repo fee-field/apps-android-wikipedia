@@ -54,7 +54,6 @@ object ExploreScreenNew : NamedKScreen<ExploreScreenNew>() {
     }
 
 
-
     fun announcementItemById(targetIndex: Int, function: TopReadItem.() -> Unit) {
 //        items.childAt<TopReadItem>(index) {
 //            name(this@ExploreScreenNew.items.getName().withParent("$index"))

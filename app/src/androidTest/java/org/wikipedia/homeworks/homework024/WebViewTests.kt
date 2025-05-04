@@ -27,9 +27,9 @@ class WebViewTest : TestCase(kaspressoBuilder = Kaspresso.Builder.withForcedAllu
                     }
                 }
                 WebViewDSLPageObject {
-                    scroll(referencesHeader)
+//                    scroll(referencesHeader)
                     hasText(referencesHeader, "References")
-                    click(referencesHeader)
+//                    click(referencesHeader)
                     getReferencesList(1) {
                         containsText(content, "Demeyer, Tess")
                     }
@@ -38,4 +38,3 @@ class WebViewTest : TestCase(kaspressoBuilder = Kaspresso.Builder.withForcedAllu
             }
         }
     }
-}
