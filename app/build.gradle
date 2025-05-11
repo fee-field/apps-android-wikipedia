@@ -168,6 +168,9 @@ apply from: '../gradle/src/checkstyle.gradle'
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
+    implementation libs.androidx.ui.test.android
+    androidTestImplementation libs.androidx.foundation.android
+
 
     // To keep the Maven Central dependencies up-to-date
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.

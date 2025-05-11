@@ -1,6 +1,5 @@
 package org.wikipedia.homeworks.homework020
 
-import NamedSteps
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.kaspersky.components.alluresupport.withForcedAllureSupport
 import com.kaspersky.kaspresso.kaspresso.Kaspresso

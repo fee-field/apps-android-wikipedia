@@ -1,3 +1,5 @@
+package org.wikipedia.homeworks.homework020
+
 import com.kaspersky.kaspresso.testcases.core.testcontext.TestContext
 import com.kaspersky.kaspresso.testcases.models.info.StepInfo
 import io.github.kakaocup.kakao.check.CheckableActions
@@ -7,7 +9,8 @@ import io.github.kakaocup.kakao.common.assertions.BaseAssertions
 import io.github.kakaocup.kakao.edit.EditableActions
 import io.github.kakaocup.kakao.text.TextViewAssertions
 import org.wikipedia.homeworks.homework020.getName
-import org.wikipedia.homeworks.homework024.KWebViewElement
+
+//import org.wikipedia.homeworks.homework024.KWebViewElement
 
 class NamedSteps(val testContext: TestContext<*>) {
 
@@ -98,7 +101,8 @@ class NamedSteps(val testContext: TestContext<*>) {
 //    - isNotChecked()
 //    - isDisplayed()
 
-    fun hasText(item: KWebViewElement, text: String) {
+    fun hasText(item: TextViewAssertions, text: String) {
+        //    fun hasText(item: KWebViewElement, text: String) {
         testContext.step("Check if ${(item as BaseActions).getName()} has text as follows: $text") {
             item.hasText(text)
         }
@@ -110,7 +114,7 @@ class NamedSteps(val testContext: TestContext<*>) {
         }
     }
 
-    fun containsText(item: KWebViewElement, text: String) {
+    fun containsText(item: TextViewAssertions, text: String) {
         testContext.step("Check if ${(item as BaseActions).getName()} contains text as follows: $text") {
             item.containsText(text)
         }
