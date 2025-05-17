@@ -11,7 +11,9 @@ import org.wikipedia.homeworks.homework023.ExploreScreenWithWidget
 import org.wikipedia.homeworks.homework08.OnboardingScreen
 import org.wikipedia.main.MainActivity
 
-class HappyRuleTest : TestCase() {
+//class HappyRuleTest : TestCase() {
+
+class DeprecatedRuleTest : TestCase() {
 
     @get:Rule
     val activityScenarioRule: ActivityScenarioRule<MainActivity> =
