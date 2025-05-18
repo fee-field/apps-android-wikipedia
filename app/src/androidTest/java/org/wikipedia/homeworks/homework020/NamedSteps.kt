@@ -9,6 +9,8 @@ import io.github.kakaocup.kakao.common.assertions.BaseAssertions
 import io.github.kakaocup.kakao.edit.EditableActions
 import io.github.kakaocup.kakao.text.TextViewAssertions
 import org.wikipedia.homeworks.homework020.getName
+import org.wikipedia.homeworks.homework029.Credentials
+import org.wikipedia.homeworks.homework029.LoginScreen
 
 //import org.wikipedia.homeworks.homework024.KWebViewElement
 
@@ -19,10 +21,20 @@ class NamedSteps(val testContext: TestContext<*>) {
     }
 
 
+
     operator fun invoke(function: NamedSteps.() -> Unit) {
         function()
     }
 
+    fun authorize(user: String) {
+        execute("authorize") {
+            val password = Credentials.getPassword(user)
+            LoginScreen.provideUsernameField.typeText(user)
+            LoginScreen.providePasswordField.typeText(password)
+            Thread.sleep(3000)
+            LoginScreen.loginButton.click()
+        }
+    }
 
     fun click(item: BaseActions) {
         testContext.step("Нажимаем на элемент '${item.getName()}'") {

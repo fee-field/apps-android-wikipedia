@@ -9,6 +9,9 @@ import io.github.kakaocup.kakao.common.actions.BaseActions
 import io.github.kakaocup.kakao.common.assertions.BaseAssertions
 import io.github.kakaocup.kakao.edit.EditableActions
 import io.github.kakaocup.kakao.text.TextViewAssertions
+import org.wikipedia.homeworks.homework029.Credentials
+import org.wikipedia.homeworks.homework029.LoginScreen
+import org.wikipedia.homeworks.homework029.Users
 import org.wikipedia.homeworks.homework08.OnboardingScreen.skipButton
 
 class Steps(val testContext: TestContext<*>) {
@@ -28,6 +31,16 @@ class Steps(val testContext: TestContext<*>) {
             item.click()
         }
     }
+
+//    fun authorize(user: String) {
+//        execute("authorize") {
+//            val password = Credentials.getPassword(user)
+//            LoginScreen.provideUsernameField.typeText(user)
+//            LoginScreen.providePasswordField.typeText(password)
+//            Thread.sleep(3000)
+//            LoginScreen.loginButton.click()
+//        }
+//    }
 
     fun isVisible(item: BaseAssertions, name: String) {
         testContext.step("проверяем видимость") {

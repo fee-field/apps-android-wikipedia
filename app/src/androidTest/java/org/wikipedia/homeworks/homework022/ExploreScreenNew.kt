@@ -1,5 +1,6 @@
 package org.wikipedia.homeworks.homework022
 
+import io.github.kakaocup.kakao.common.views.KView
 import io.github.kakaocup.kakao.image.KImageView
 import io.github.kakaocup.kakao.recycler.KRecyclerView
 import io.github.kakaocup.kakao.text.KButton
@@ -25,6 +26,12 @@ object ExploreScreenNew : NamedKScreen<ExploreScreenNew>() {
         KImageView {
             withId(R.id.main_toolbar_wordmark)
         }.setName(withParent("Toolbar title"))
+    }
+
+    val moreButton by lazy {
+        KView{
+            withId(R.id.nav_tab_more)
+        }.setName(withParent("More button"))
     }
 
     val searchIcon: KImageView by lazy {
